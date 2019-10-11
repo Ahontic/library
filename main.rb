@@ -40,7 +40,18 @@ library.add_order order1
 library.add_order order3
 library.add_order order4
 library.add_order order5
+binding.pry
 
-puts library.top_readers(2)
+top_readers = library.top_readers(2)
+top_readers.each do |reader, count|
+  puts "Reader #{reader.name} has bought #{count} books"
+end
 
-puts library.most_popular_books
+top_books = library.most_popular_books(2)
+puts "Most popular books: "
+top_books.each do |book, author|
+  puts "Title: #{book.title}, author: #{book.author.name}"
+end
+
+top_books_readers_count = library.number_of_readers_of_the_most_popular_books
+
