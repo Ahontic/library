@@ -20,23 +20,17 @@ class Library
   # end
 
   def top_readers(quantity = 1)
-    
-    @orders.group_by(&:reader).transform_values(&:count).sort_by{|k, v| v}.reverse.take(quantity)#
-  
+    @orders.group_by(&:reader).transform_values(&:count).sort_by { |_k, v| v }.reverse.take(quantity)
   end
 
   def most_popular_books(quantity = 1)
-      @orders.group_by(&:book).transform_values(&:count).sort_by{|k, v| v}.reverse.take(quantity)
+    @orders.group_by(&:book).transform_values(&:count).sort_by { |_k, v| v }.reverse.take(quantity)
   end
 
   def number_of_readers_of_the_most_popular_books(quantity = 3)
+    @orders.group_by(&:book).transform_values(&:count).values.max(quantity)
 
-     # @orders.group_by(&:book).transform_values(&:count).sort_by{|k, v| v}.reverse.take(quantity)
   end
-
-
-
-  
 
   def add_author(author)
     @authors << author
@@ -53,6 +47,4 @@ class Library
   def add_reader(reader)
     @readers << reader
   end
-
-  
 end

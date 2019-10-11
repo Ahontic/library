@@ -1,4 +1,4 @@
-require "./config.rb"
+require './config.rb'
 
 # Authors
 author1 = Author.new('William Shakespeare', 'Born in prehistoric time...')
@@ -36,11 +36,10 @@ library.add_reader reader2
 
 # Adding orders to library
 library.add_order order1
-library.add_order order1
+library.add_order order2
 library.add_order order3
 library.add_order order4
 library.add_order order5
-binding.pry
 
 top_readers = library.top_readers(2)
 top_readers.each do |reader, count|
@@ -48,10 +47,11 @@ top_readers.each do |reader, count|
 end
 
 top_books = library.most_popular_books(2)
-puts "Most popular books: "
-top_books.each do |book, author|
-  puts "Title: #{book.title}, author: #{book.author.name}"
+puts 'Most popular books: '
+top_books.each do |book, _author|
+  puts "Title: #{book.title}, Author: #{book.author.name}"
 end
 
 top_books_readers_count = library.number_of_readers_of_the_most_popular_books
-
+puts top_books_readers_count
+binding.pry
