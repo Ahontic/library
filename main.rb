@@ -1,4 +1,6 @@
 require './config.rb'
+require './modules/file_options.rb'
+require 'yaml'
 
 # Authors
 author1 = Author.new('William Shakespeare', 'Born in prehistoric time...')
@@ -23,23 +25,23 @@ order5 = Order.new(book1, reader1, Date.today)
 library = Library.new
 
 # Adding authors to library
-library.add_author author1
-library.add_author author2
+library << author1
+library << author2
 
 # Adding books to library
-library.add_book(book1)
-library.add_book(book2)
+library << book1
+library << book2
 
 # Adding readers to library
-library.add_reader reader1
-library.add_reader reader2
+library << reader1
+library << reader2
 
 # Adding orders to library
-library.add_order order1
-library.add_order order2
-library.add_order order3
-library.add_order order4
-library.add_order order5
+library << order1
+library << order2
+library << order3
+library << order4
+library << order5
 
 top_readers = library.top_readers(2)
 top_readers.each do |reader, count|
@@ -52,6 +54,4 @@ top_books.each do |book, _author|
   puts "Title: #{book.title}, Author: #{book.author.name}"
 end
 
-top_books_readers_count = library.number_of_readers_of_the_most_popular_books
-puts top_books_readers_count
-binding.pry
+library.number_of_readers_of_the_most_popular_books(2)

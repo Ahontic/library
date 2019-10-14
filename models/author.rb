@@ -1,11 +1,18 @@
+require './modules/base.rb'
 # defining Author class
-# class Author < Base
-class Author
+class Author < Base
   attr_reader :name, :biography
 
-  def initialize(name, biography)
+  def initialize(name, biography = '')
     @name = name
     @biography = biography
-    # validate
+    validate(name)
+  end
+
+  private
+
+  def validate(name)
+    validate_class(name, String)
+    validate_empty(name)
   end
 end
