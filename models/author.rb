@@ -1,4 +1,3 @@
-require './modules/base.rb'
 # defining Author class
 class Author < Base
   attr_reader :name, :biography

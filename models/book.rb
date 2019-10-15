@@ -1,4 +1,3 @@
-require './modules/base.rb'
 # defining Book class
 class Book < Base
   attr_reader :title, :author

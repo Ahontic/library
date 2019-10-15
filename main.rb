@@ -1,7 +1,4 @@
 require './config.rb'
-require './modules/file_options.rb'
-require 'yaml'
-
 # Authors
 author1 = Author.new('William Shakespeare', 'Born in prehistoric time...')
 author2 = Author.new('Agatha Christie', 'Born and killed immediately...')
@@ -54,4 +51,6 @@ top_books.each do |book, _author|
   puts "Title: #{book.title}, Author: #{book.author.name}"
 end
 
-library.number_of_readers_of_the_most_popular_books(2)
+puts "Number of readers of the most popular book:
+#{library.number_of_readers_of_the_most_popular_books(2)}"
+library.save

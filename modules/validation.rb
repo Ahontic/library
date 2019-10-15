@@ -1,7 +1,5 @@
 # Validation module
 module Validation
-  NotFoundSuchEntity = Class.new(ArgumentError)
-
   def validate_empty(value)
     raise ArgumentError, 'Value cannot be blank' if value.empty?
   end
